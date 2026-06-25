@@ -28,10 +28,28 @@
     </nav>
 
     <!-- Search Section -->
-    <section id="seach-section" class="news-search"></section>
+    <section id="search-section" class="news-search">
+        <h2 class="h-secondary center">Find the News That Matters to You</h2>
+        <h3 class="h-teriary center">Explore breaking news, trending stories, and the latest updates from around the
+            world.</h3>
+        <form action="/search" method="GET" class="center">
+            <input type="search" id="site-search" name="q" placeholder="Search for news, topics, or keywords...">
+            <button class="btn" type="submit">Search</button>
+        </form>
+    </section>
 
     <!-- Categories Navigation -->
-    <section id="news-category-section" class="news-category"></section>
+    <section id="news-category-section" class="news-category">
+        <span class=" cate center">
+            <a href="#">Technology</a>
+            <a href="#">Business</a>
+            <a href="#">Sports</a>
+            <a href="#">Health</a>
+            <a href="#">Environament</a>
+            <a href="#">Science</a>
+        </span>
+
+    </section>
 
     <!-- News Card Grid -->
     <section id="news-card-grid" class="news-card-section"></section>

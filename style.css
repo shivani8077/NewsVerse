@@ -1,54 +1,117 @@
 /* CSS RESET */
 
-*{
+* {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
 
-body{
-    background:#FFF8F5;
-    font-family:'Poppins',sans-serif;
-    color:#4B2E2E;
+body {
+    background: #FFF8F5;
+    font-family: 'Poppins', sans-serif;
+    color: #4B2E2E;
 }
 
 /* Navbar Section */
-#navbar{
+#navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0px 1%;
-    top:0;
+    padding: 0px;
+    top: 0;
     background-color: #b9cae9;
 }
 
-#logo img{
-   height: 100px;
-    width: 250px;
+#logo img {
+    height: 80px;
+    width: 200px;
 }
 
-#navbar ul{
+#navbar ul {
     display: flex;
-    /* list-style: none; */
 }
 
-#navbar ul li{
-    font-size: 2rem;
+#navbar a {
+    color: black;
     list-style: none;
+    padding: 0px 12px;
+    /* font-size: 1rem; */
+    font-weight: bold;
+    text-decoration: none;
 }
 
-#navbar ul li a{
-    color: white;
-    padding: 2px 14px;
-    
+#navbar a:hover {
+    color: blue;
 }
 
 /* Search Section  */
+#search-section {
+    margin: 23px;
+    display: flex;
+    flex-direction: column;
+    padding: 23px;
+
+}
 
 
 /* Categories Navigation */
+#news-category-section {
+    margin: 23px;
+    display: flex;
+    flex-direction: column;
+}
+
+#news-category-section a {
+    padding: 15px 50px;
+    font-size: 1.2rem;
+    color: black;
+    text-decoration: none;
+}
+
+
 
 
 /* News Card Grid */
 
 /* Footer Section */
+
+/* Utility class */
+.h-primary {
+    font-size: 2rem;
+    padding: 12px;
+}
+
+.h-secondary {
+    font-size: 1.4rem;
+    padding: 12px;
+}
+
+.h-tertiary {
+    font-size: 1rem;
+    padding: 12px;
+}
+
+.center {
+    text-align: center;
+}
+
+input {
+    border: solid rgb(6, 61, 243) 1px;
+    color: black;
+    font-size: 1.2rem;
+    margin: 14px;
+    border-radius: 17px;
+    padding: 3px 50px;
+}
+
+.btn {
+    padding: 3px 30px;
+    background-color: #5c8de8;
+    color: white;
+    font-size: 1.2rem;
+    margin: 17px;
+    border-radius: 30px;
+    cursor: pointer;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+}
