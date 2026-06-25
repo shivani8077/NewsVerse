@@ -1,0 +1,54 @@
+/* CSS RESET */
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    background:#FFF8F5;
+    font-family:'Poppins',sans-serif;
+    color:#4B2E2E;
+}
+
+/* Navbar Section */
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 1%;
+    top:0;
+    background-color: #b9cae9;
+}
+
+#logo img{
+   height: 100px;
+    width: 250px;
+}
+
+#navbar ul{
+    display: flex;
+    /* list-style: none; */
+}
+
+#navbar ul li{
+    font-size: 2rem;
+    list-style: none;
+}
+
+#navbar ul li a{
+    color: white;
+    padding: 2px 14px;
+    
+}
+
+/* Search Section  */
+
+
+/* Categories Navigation */
+
+
+/* News Card Grid */
+
+/* Footer Section */
