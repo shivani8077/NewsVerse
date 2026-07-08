@@ -27,6 +27,10 @@ body {
     width: 200px;
 }
 
+li.item {
+    list-style: none;
+}
+
 #navbar ul {
     display: flex;
 }
@@ -42,6 +46,51 @@ body {
 
 #navbar a:hover {
     color: blue;
+}
+
+/* ===========================
+   Responsive Navbar
+=========================== */
+
+@media screen and (max-width: 768px) {
+
+    #navbar{
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    #logo{
+        margin-bottom: 10px;
+    }
+
+    #logo img{
+        width: 120px;
+        height: auto;
+    }
+
+    #navbar ul{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    #navbar ul li{
+        list-style: none;
+        width: 100%;
+        text-align: center;
+        margin: 5px 0;
+    }
+
+    #navbar ul li a{
+        display: block;
+        padding: 12px;
+        font-size: 18px;
+        text-decoration: none;
+    }
 }
 
 /* Search Section  */
@@ -68,12 +117,84 @@ body {
     text-decoration: none;
 }
 
-
-
-
 /* News Card Grid */
+#news-card-grid {
+    margin: 23px;
+    display: flex;
+    flex-direction: column;
+    padding: 23px;
+}
+
+#news-card-grid .news-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    padding: 2px;
+    gap: 10px;
+}
+
+img {
+    height: 200px;
+    width: 150px;
+}
+
+.card {
+    background-color: #b9cae9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.load-more .btn {
+    align-items: center;
+}
 
 /* Footer Section */
+
+#footer-section {
+    /* margin: 34px; */
+    background-color: black;
+    color: white;
+    font-size: 1rem;
+}
+
+#footer-section h3 {
+    font-size: small;
+    padding: 17px;
+}
+
+#footer-section p {
+    font-size: medium;
+    padding: 17px;
+}
+
+#footer-section .copyright p {
+    text-align: center;
+    font-size: smaller;
+}
+
+#footer-section .tagline p {
+    text-align: center;
+    font-size: smaller;
+}
+
+.mid-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+
+}
+
+.mid-footer a {
+    text-decoration: none;
+    color: white;
+    font-size: small;
+}
+
+.mid-footer a:hover {
+    color: blue;
+}
 
 /* Utility class */
 .h-primary {
@@ -112,6 +233,7 @@ input {
     margin: 17px;
     border-radius: 30px;
     cursor: pointer;
+    border: blue solid 1px;
     color: black;
     font-family: 'Times New Roman', Times, serif;
 }
