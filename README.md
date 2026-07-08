@@ -1,4 +1,4 @@
-# 📰 NewsVerse
+# NewsVerse
 
 **NewsVerse** is a responsive news website built using **HTML, CSS, and JavaScript**. It fetches the latest news from the **NewsAPI** and allows users to browse top headlines, explore news by category, and search for articles in real time.
 
