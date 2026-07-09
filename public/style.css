@@ -137,15 +137,16 @@ li.item {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     padding: 2px;
-    gap: 10px;
+    gap: 16px;
+    /* background-color: #b9cae9; */
 }
 
 img {
     height: 200px;
-    width: 150px;
+    width:  321px;
 }
 
-.card {
+#news-card-grid .new-card {
     background-color: #b9cae9;
     padding: 20px;
     border-radius: 8px;

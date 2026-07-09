@@ -1,67 +1,82 @@
-
-// =============================
-// NewsAPI Configuration
-// =============================
-
-const API_KEY = "6842d609b1dd4189976fd25837fa8c7d";
-const BASE_URL = "https://newsapi.org/v2";
-
 // =============================
 // HTML Elements
 // =============================
 
 const newsContainer = document.getElementById("newsContainer");
+const searchForm = document.getElementById("searchForm");
+const searchInput = document.getElementById("site-search");
+// Footer Links
+const footerHome = document.getElementById("footer-home");
+const footerCategory = document.getElementById("footer-category");
+const footerSearch = document.getElementById("footer-search");
+const footerLatest = document.getElementById("footer-latest");
 
-// Navbar
-const navHome = document.getElementById("nav-home");
-const navTechnology = document.getElementById("nav-technology");
-const navBusiness = document.getElementById("nav-business");
-const navSports = document.getElementById("nav-sports");
-const navHealth = document.getElementById("nav-health");
-const navEntertainment = document.getElementById("nav-entertainment");
-const navScience = document.getElementById("nav-science");
+// =============================
+// Load Top Headlines
+// =============================
 
-// Categories
-const catTechnology = document.getElementById("cat-technology");
-const catBusiness = document.getElementById("cat-business");
-const catSports = document.getElementById("cat-sports");
-const catHealth = document.getElementById("cat-health");
-const catEntertainment = document.getElementById("cat-entertainment");
-const catScience = document.getElementById("cat-science");
-
-// Mobile Menu
-const menuToggle = document.getElementById("menu-toggle");
-const navMenu = document.querySelector("#navbar ul");
-
-menuToggle.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-});
+window.onload = () => {
+    loadNews();
+};
 
 // =============================
 // Fetch News
 // =============================
 
-async function fetchNews(url) {
+async function loadNews(category = "") {
 
     try {
 
+        let url = "/api/news";
+
+        if (category) {
+            url += `?category=${category}`;
+        }
+
         const response = await fetch(url);
-
         const data = await response.json();
-
-        console.log(data);
 
         displayNews(data.articles);
 
-    }
+    } catch (error) {
 
-    catch (error) {
+        console.log(error);
 
-        console.error(error);
-
+        newsContainer.innerHTML =
+            "<h2>Unable to load news.</h2>";
     }
 
 }
+
+// =============================
+// Search News
+// =============================
+
+searchForm.addEventListener("submit", async (e) => {
+
+    e.preventDefault();
+
+    const query = searchInput.value.trim();
+
+    if (query === "") return;
+
+    try {
+
+        const response = await fetch(`/api/search?q=${query}`);
+        const data = await response.json();
+
+        displayNews(data.articles);
+
+    } catch (error) {
+
+        console.log(error);
+
+        newsContainer.innerHTML =
+            "<h2>No news found.</h2>";
+
+    }
+
+});
 
 // =============================
 // Display News
@@ -71,27 +86,43 @@ function displayNews(articles) {
 
     newsContainer.innerHTML = "";
 
+    if (!articles || articles.length === 0) {
+
+        newsContainer.innerHTML =
+            "<h2>No News Available</h2>";
+
+        return;
+    }
+
     articles.forEach(article => {
 
         const card = document.createElement("div");
 
-        card.className = "card";
+        card.className = "news-card";
 
         card.innerHTML = `
-            <img src="${article.urlToImage || "images/no-image.png"}" alt="News">
+
+        <img src="${article.urlToImage || 'https://via.placeholder.com/400x220?text=No+Image'}" alt="News Image">
+
+        <div class="news-content">
 
             <h3>${article.title}</h3>
 
             <p>${article.description || "No description available."}</p>
 
-            <p>
-                <strong>${article.source.name}</strong><br>
-                ${new Date(article.publishedAt).toLocaleDateString()}
-            </p>
+            <small>
+            ${article.source.name} |
+            ${new Date(article.publishedAt).toLocaleDateString()}
+            </small>
+
+            <br><br>
 
             <a href="${article.url}" target="_blank">
                 Read More →
             </a>
+
+        </div>
+
         `;
 
         newsContainer.appendChild(card);
@@ -101,139 +132,36 @@ function displayNews(articles) {
 }
 
 // =============================
-// Helper Functions
+// Navbar Categories
 // =============================
 
-function loadHome() {
+document.getElementById("nav-home").onclick = () => loadNews();
 
-    fetchNews(
-        `${BASE_URL}/top-headlines?country=us&apiKey=${API_KEY}`
-    );
+document.getElementById("nav-technology").onclick = () => loadNews("technology");
 
-}
+document.getElementById("nav-business").onclick = () => loadNews("business");
 
-function loadCategory(category) {
+document.getElementById("nav-sports").onclick = () => loadNews("sports");
 
-    fetchNews(
-        `${BASE_URL}/top-headlines?country=us&category=${category}&apiKey=${API_KEY}`
-    );
+document.getElementById("nav-health").onclick = () => loadNews("health");
 
-}
+document.getElementById("nav-entertainment").onclick = () => loadNews("entertainment");
+
+document.getElementById("nav-science").onclick = () => loadNews("science");
 
 // =============================
-// Load Home on Startup
+// Category Section
 // =============================
 
-loadHome();
+document.getElementById("cat-technology").onclick = () => loadNews("technology");
 
-// =============================
-// Navbar Events
-// =============================
+document.getElementById("cat-business").onclick = () => loadNews("business");
 
-navHome.addEventListener("click", function(e){
+document.getElementById("cat-sports").onclick = () => loadNews("sports");
 
-    e.preventDefault();
+document.getElementById("cat-health").onclick = () => loadNews("health");
 
-    loadHome();
+document.getElementById("cat-entertainment").onclick = () => loadNews("entertainment");
 
-});
+document.getElementById("cat-science").onclick = () => loadNews("science");
 
-navTechnology.addEventListener("click", function(e){
-
-    e.preventDefault();
-
-    loadCategory("technology");
-
-});
-
-navBusiness.addEventListener("click", function(e){
-
-    e.preventDefault();
-
-    loadCategory("business");
-
-});
-
-navSports.addEventListener("click", function(e){
-
-    e.preventDefault();
-
-    loadCategory("sports");
-
-});
-
-navHealth.addEventListener("click", function(e){
-
-    e.preventDefault();
-
-    loadCategory("health");
-
-});
-
-navEntertainment.addEventListener("click", function(e){
-
-    e.preventDefault();
-
-    loadCategory("entertainment");
-
-});
-
-navScience.addEventListener("click", function(e){
-
-    e.preventDefault();
-
-    loadCategory("science");
-
-});
-
-// =============================
-// Category Section Events
-// =============================
-
-catTechnology.addEventListener("click", function(e){
-
-    e.preventDefault();
-
-    loadCategory("technology");
-
-});
-
-catBusiness.addEventListener("click", function(e){
-
-    e.preventDefault();
-
-    loadCategory("business");
-
-});
-
-catSports.addEventListener("click", function(e){
-
-    e.preventDefault();
-
-    loadCategory("sports");
-
-});
-
-catHealth.addEventListener("click", function(e){
-
-    e.preventDefault();
-
-    loadCategory("health");
-
-});
-
-catEntertainment.addEventListener("click", function(e){
-
-    e.preventDefault();
-
-    loadCategory("entertainment");
-
-});
-
-catScience.addEventListener("click", function(e){
-
-    e.preventDefault();
-
-    loadCategory("science");
-
-});
