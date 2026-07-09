@@ -2,6 +2,9 @@
 
 NewsVerse is a responsive news web application that displays the latest headlines using NewsAPI. Users can browse news by category and search for articles with a simple and user-friendly interface.
 
+## Live
+https://newsverse-rat4.onrender.com
+
 ## Features
 
 * Latest Top Headlines
