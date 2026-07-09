@@ -5,6 +5,7 @@
     padding: 0px;
     box-sizing: border-box;
 }
+ul{list-style: none;}
 
 body {
     background: #FFF8F5;
@@ -33,6 +34,7 @@ li.item {
 
 #navbar ul {
     display: flex;
+    list-style-type: none;
 }
 
 #navbar a {
@@ -46,6 +48,10 @@ li.item {
 
 #navbar a:hover {
     color: blue;
+}
+
+#navbar ul li::marker{
+    content: "";
 }
 
 /* ===========================
@@ -76,14 +82,16 @@ li.item {
         width: 100%;
         padding: 0;
         margin: 0;
+        list-style: none;
     }
 
     #navbar ul li{
-        list-style: none;
         width: 100%;
         text-align: center;
         margin: 5px 0;
+        list-style: none;
     }
+
 
     #navbar ul li a{
         display: block;

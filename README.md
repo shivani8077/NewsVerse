@@ -1,98 +1,74 @@
 # NewsVerse
 
-**NewsVerse** is a responsive news website built using **HTML, CSS, and JavaScript**. It fetches the latest news from the **NewsAPI** and allows users to browse top headlines, explore news by category, and search for articles in real time.
-
----
+NewsVerse is a responsive news web application that displays the latest headlines using NewsAPI. Users can browse news by category and search for articles with a simple and user-friendly interface.
 
 ## Features
 
-* Top Headlines on the home page
-* Search news by keyword
-* Browse news by category:
+* Latest Top Headlines
+* Search News by Keyword
+* Technology News
+* Business News
+* Sports News
+* Health News
+* Entertainment News
+* Science News
+* Responsive Design
 
-  * Technology
-  * Business
-  * Sports
-  * Health
-  * Entertainment
-  * Science
-* 📰 Dynamic news cards
-* 📱 Fully responsive design
-* 🌐 Clean and user-friendly interface
-* 🔗 Read the complete article on the original news website
-
----
-
-## 🛠️ Technologies Used
+## Tech Stack
 
 * HTML5
 * CSS3
-* JavaScript (ES6)
+* JavaScript
+* Node.js
+* Express.js
 * NewsAPI
-
----
-
-##  Project Structure
-
-```
-NewsVerse/
-│
-├── index.html
-├── style.css
-├── script.js
-├── images/
-│   ├── s-logo.png
-│   └── no-image.png
-└── README.md
-```
-
----
 
 ## Installation
 
 1. Clone the repository.
+2. Install dependencies:
 
 ```bash
-git clone https://github.com/your-username/NewsVerse.git
+npm install
 ```
 
-2. Open the project folder.
+3. Create a `.env` file:
 
-3. Open `index.html` using **Live Server** in Visual Studio Code.
-
----
-
-##  API Setup
-
-1. Create an account at NewsAPI.
-2. Generate your API key.
-3. Open `script.js`.
-4. Replace the placeholder API key with your own.
-
-```javascript
-const API_KEY = "YOUR_API_KEY";
+```env
+NEWS_API_KEY=YOUR_API_KEY
+PORT=3000
 ```
 
-> **Important:** Never commit your real API key to a public GitHub repository.
+4. Start the server:
 
-## Live Demo
-
-Add your deployed website link here after deployment.
-
-```
-https://your-username.github.io/NewsVerse/
+```bash
+node server.js
 ```
 
----
+5. Open your browser and visit:
+
+```text
+http://localhost:3000
+```
+
+## Project Structure
+
+```text
+NewsVerse/
+│── public/
+│── server.js
+│── package.json
+│── .env
+└── README.md
+```
 
 ## Author
 
 **Shivani Singh Prajapati**
 
-* GitHub: https://github.com/shivani8077
-* LinkedIn: https://www.linkedin.com/in/shivani-singh-prajapati
+GitHub: https://github.com/shivani8077
 
----
+LinkedIn: https://www.linkedin.com/in/shivani-singh-prajapati
 
 ## License
 

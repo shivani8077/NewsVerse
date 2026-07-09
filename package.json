@@ -1,0 +1,30 @@
+{
+  "name": "newsverse",
+  "version": "1.0.0",
+  "description": "**NewsVerse** is a responsive news website built using **HTML, CSS, and JavaScript**. It fetches the latest news from the **NewsAPI** and allows users to browse top headlines, explore news by category, and search for articles in real time.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shivani8077/NewsVerse.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/shivani8077/NewsVerse/issues"
+  },
+  "homepage": "https://github.com/shivani8077/NewsVerse#readme",
+  "dependencies": {
+    "axios": "^1.18.1",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
